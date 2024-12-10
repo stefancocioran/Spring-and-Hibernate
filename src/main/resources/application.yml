@@ -1,6 +1,6 @@
 spring.profiles.active: dev
 feed.filename: demo.feed
-# TASK 4.1: Add audit amount properties for event filtering.
+
 audit.amount:
   deposit: 99
   withdrawal: 99
