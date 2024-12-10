@@ -29,11 +29,11 @@ public class BankApplication {
     private static final String[] CLIENT_NAMES =
             {"Jonny Bravo", "Adam Budzinski", "Anna Smith"};
 
-    @Autowired
-    private ApplicationContext applicationContext;
-
-    @Autowired
-    private Environment environment;
+//    @Autowired
+//    private ApplicationContext applicationContext;
+//
+//    @Autowired
+//    private Environment environment;
 
     public static void main(String[] args) {
         SpringApplication.run(BankApplication.class, args);
@@ -154,49 +154,6 @@ public class BankApplication {
         return banking;
     }
 
-    @Bean(name = "client1")
-    public Client getDemoClient1() {
-        String name = environment.getProperty("client1");
-
-        Client client = new Client(name, Gender.MALE);
-        client.setCity("Moscow");
-
-        Account savingAccount = (SavingAccount) applicationContext.getBean("savingAccount1");
-        client.addAccount(savingAccount);
-
-        Account checkingAccount = (CheckingAccount) applicationContext.getBean("checkingAccount1");
-        client.addAccount(checkingAccount);
-
-        return client;
-    }
-
-    @Bean(name = "savingAccount1")
-    public SavingAccount getDemoSavingAccount1() {
-        return new SavingAccount(1000);
-    }
-
-    @Bean(name = "checkingAccount1")
-    public CheckingAccount getDemoCheckingAccount1() {
-        return new CheckingAccount(1000);
-    }
-
-    @Bean(name = "client2")
-    public Client getDemoClient2() {
-        String name = environment.getProperty("client2");
-
-        Client client = new Client(name, Gender.MALE);
-        client.setCity("Kiev");
-
-        Account checking = (CheckingAccount) applicationContext.getBean("checkingAccount2");
-        client.addAccount(checking);
-
-        return client;
-    }
-
-    @Bean(name = "checkingAccount2")
-    public CheckingAccount getDemoCheckingAccount2() {
-        return new CheckingAccount(1500);
-    }
 
 
 }
